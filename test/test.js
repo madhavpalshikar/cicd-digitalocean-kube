@@ -7,7 +7,7 @@ chai.should();
 
 describe("Service..", ()=>{
     describe("GET /", ()=>{
-        it("Service should be working", (done)=>{
+        it("Service should be working..", (done)=>{
             chai.request(app)
                 .get('/')
                 .end((err, res)=>{
