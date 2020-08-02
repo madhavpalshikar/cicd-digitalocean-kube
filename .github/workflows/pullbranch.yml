@@ -16,5 +16,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm install
-      - run: npm test
+      - run: docker build -t madhavpalshikar/apptest .
+      - run: docker login -u $DOCKER_UN -p $DOCKER_PW
+        env:
+          DOCKER_UN: ${{ secret.DOCKER_UN }}
+          DOCKER_PW: ${{ secret.DOCKER_PW }}
+      - run: docker push madhavpalshikar/apptest 
