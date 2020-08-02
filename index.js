@@ -5,5 +5,5 @@ app.listen(process.env.PORT, (err)=>{
         console.error(err);
     }
 
-    console.log(`Service is running at port ${process.env.PORT}`);
+    console.log(`Service is running at port: ${process.env.PORT}`);
 })
