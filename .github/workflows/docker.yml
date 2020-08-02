@@ -19,3 +19,8 @@ jobs:
           DOCKER_UN: ${{ secrets.DOCKER_UN }}
           DOCKER_PW: ${{ secrets.DOCKER_PW }}
       - run: docker push madhavpalshikar/apptest 
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DOCTL_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save apptest
+      - run: kubectl rollout restart deployment app-depl
