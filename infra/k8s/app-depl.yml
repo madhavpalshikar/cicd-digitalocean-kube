@@ -6,23 +6,23 @@ spec:
   replicas: 1
   selector: 
     matchLabels:
-      app:apptest
+      app: apptest
   template: 
     metadata:
       labels:
-        app:apptest
-  spec:
-    containers:
-      - name: apptest
-        image: madhavpalshikar/apptest
+        app: apptest
+    spec:
+      containers:
+        - name: apptest
+          image: madhavpalshikar/apptest
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: apptest-srv
 spec:
-  selectors:
-    app:apptest
+  selector:
+    app: apptest
   ports:
     - name: apptest
       protocol: TCP
